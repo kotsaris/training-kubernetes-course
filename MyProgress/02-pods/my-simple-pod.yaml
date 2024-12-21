@@ -1,0 +1,15 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+    name: my-simple-pod
+spec:
+    containers:
+    - name: my-simple-container
+      image: nginx:latest
+      ports:
+      - containerPort: 80
+
+# kubectl create -f my-simple-pod.yaml
+
+# when having changes to update...
+# kubectl apply -f my-simple-pod.yaml

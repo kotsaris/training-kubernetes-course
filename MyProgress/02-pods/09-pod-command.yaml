@@ -1,0 +1,16 @@
+﻿apiVersion: v1
+kind: Pod
+metadata:
+    name: my-simple-pod
+spec:
+    containers:
+    - name: my-simple-container
+      image: vinsdocker/k8s-entrypoint
+      command:
+        - "date"
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+
+
