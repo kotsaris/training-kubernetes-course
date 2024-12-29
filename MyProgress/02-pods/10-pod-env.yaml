@@ -1,13 +1,16 @@
-﻿apiVersion: v1
+apiVersion: v1
 kind: Pod
 metadata:
     name: my-pod
 spec:
     containers:
     - name: my-simple-container
-      image: vinsdocker/k8s-entrypoint
-      command:
-        - "date"
+      image: ubuntu
+      env:
+        - name: "request.timeout"
+          value: "30"
+      args:
+        - "env"
       resources:
         limits:
           memory: "128Mi"
