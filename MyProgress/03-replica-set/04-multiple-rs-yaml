@@ -1,0 +1,42 @@
+#This displays an example where the same RS is applied to the same label. The result is that both RS create their own replica pods to manage.
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs-1
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+      colour: red
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: my-app
+        colour: red
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-rs-2
+spec:
+  selector:
+    matchLabels:
+      app: my-app
+      colour: red
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: my-app
+        colour: red
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+

@@ -6,10 +6,7 @@ spec:
     containers:
     - name: my-simple-container
       image: nginx:latest
-      ports:
-      - containerPort: 80
-
-# kubectl create -f my-pod.yaml
-
-# when having changes to update...
-# kubectl apply -f my-pod.yaml
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"

@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+      {
+        "name": "Apply current file to k8s",
+        "request": "launch",
+        "type": "node",
+        "runtimeExecutable": "kubectl",
+        "args": [
+          "apply",
+          "-f",
+          "${file}"
+        ],
+        "cwd": "${workspaceFolder}"
+      }
+    ]
+  }

@@ -5,15 +5,13 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: my-app
-      colour: red
+      #this has to match the label in the file>template>metadata>labels
+      team: team-a
   replicas: 3
   template:
     metadata:
-      name: my-pod
       labels:
-        app: my-app
-        colour: red
+        team: team-a
     spec:
       containers:
       - name: nginx
