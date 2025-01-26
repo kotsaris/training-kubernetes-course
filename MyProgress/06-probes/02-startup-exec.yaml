@@ -1,0 +1,22 @@
+#prefer httpGet or tcpSocket over exec for liveness and readiness probes
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      startupProbe:
+        exec:
+          command:
+            - cat
+            - /usr/share/nginx/html/index.html
+        periodSeconds: 1
+        failureThreshold: 3
+
+#In cases where you have to use exec, it's a good idea to bundle a script in the docker image instead
+#command:
+#  - /bin/sh
+#  - -c
+#  - /usr/local/bin/check.sh

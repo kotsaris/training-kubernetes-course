@@ -7,7 +7,7 @@ spec:
   strategy:
     type: Recreate
   selector:
-    matchLabels:
+    matc  hLabels:
       app: order-service
   replicas: 3
   template:
@@ -16,12 +16,12 @@ spec:
         app: order-service
     spec:
       containers:
-      - name: order-service
-        image: vinsdocker/k8s-app:v2
-        ports:
-          - name: https
-            containerPort: 80
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        - name: order-service
+          image: vinsdocker/k8s-app:v2
+          ports:
+            - name: https
+              containerPort: 80
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"

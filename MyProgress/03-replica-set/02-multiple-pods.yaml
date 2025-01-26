@@ -33,7 +33,7 @@ kind: Pod
 metadata:
   name: my-pod-3
   labels:
-      team: team-a
+    team: team-a
 spec:
   containers:
   - name: my-simple-container

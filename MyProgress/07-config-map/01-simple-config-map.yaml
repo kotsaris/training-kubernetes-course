@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-properties
+#Notice, no spec here. Just data
+data:
+  appUrl: "http://my-app:80"
+  timeout: "30"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-pod
+spec:
+  restartPolicy: Never
+  containers:
+  - name: ubuntu
+    image: ubuntu
+    env:
+    - name: APP_URL
+      valueFrom:
+        configMapKeyRef:
+          name: app-properties
+          key: appUrl
+    - name: TIMEOUT
+      valueFrom:
+        configMapKeyRef:
+          name: app-properties
+          key: timeout
+    args:
+    - env
